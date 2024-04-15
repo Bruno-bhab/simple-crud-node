@@ -10,7 +10,7 @@ app.use(express.json())
 
 app.get('/users', async (req, res) => {
     const response = await getAllUsers()
-    res.json(response)
+    return res.json(response)
 })
 
 app.get('/user', async (req, res) => {
@@ -20,7 +20,7 @@ app.get('/user', async (req, res) => {
     }
 
     const response = await getUser(user)
-    res.json(response)
+    return res.json(response)
 })
 
 app.post('/user', async (req, res) => {
@@ -30,7 +30,7 @@ app.post('/user', async (req, res) => {
     }
     
     const users = await insertUser(newUser)
-    res.status(201).send()
+    return res.status(201).send()
 })
 
 app.put('/user', async (req, res) => {
@@ -43,7 +43,7 @@ app.put('/user', async (req, res) => {
     
     const users = await updateUser(user, id)
 
-    res.status(204).send()
+    return res.status(204).send()
 })
 
 
