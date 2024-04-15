@@ -14,8 +14,8 @@ app.get('/users', async (req, res) => {
 })
 
 app.get('/user', async (req, res) => {
-    const { user } = req.body
-    if(!user){
+    const { id } = req.query
+    if(!id){
         return res.status(403).send()
     }
 
