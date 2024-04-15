@@ -15,25 +15,25 @@ const db = knex({
 async function getAllUsers() {
     return await db
       .select('*')
-      .from('user')
+      .from('users')
   }
 
 async function getUser(user_id) {
     return await db
         .select('*')
-        .from('user')
+        .from('users')
         .where('id', user_id)
   }
 
 async function insertUser(data){
     return await db
         .insert(data)
-        .into("user")
+        .into("users")
         .catch(err => { console.log(err) })
 }
 
 async function updateUser(data, user_id){
-    return await db('user')
+    return await db('users')
     .update(data)
     .where('id', user_id)
     .catch(err => { console.log(err) })
